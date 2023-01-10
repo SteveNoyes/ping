@@ -34,3 +34,11 @@ body {
   width: 20px;
   height: 20px;
 }
+
+#logas {
+  font-size: 30px;
+  font-family: monospace;
+  display: block;
+  background-color: lightgrey;
+  text-align: center;
+}
