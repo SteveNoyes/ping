@@ -1,5 +1,5 @@
 body {
-  overlay: hidden;
+  /* overlay: hidden; */
   margin: 0px;
   width: 100%;
   height: 100%;
@@ -9,9 +9,18 @@ body {
 #rh {
   top: 0px;
   right: 0px;
+  background-color: blue;
 }
 
 #rh {
   top: 0px;
   right: 0px;
+  background-color: red;
+}
+
+.handle {
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 100px;
 }
