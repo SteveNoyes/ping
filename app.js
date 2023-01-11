@@ -26,3 +26,34 @@ var sL = 0,
 
 window.addEventListener("keydown", kd);
 window.addEventListener("keyup", ku);
+
+function kd(evt) {
+  switch (evt.keyCode) {
+    case 38:
+      {
+        bUP = -1;
+      }
+      break;
+    case 40:
+      {
+        bDN = 1;
+      }
+      break;
+    case 87:
+      {
+        bW = -1;
+      }
+      break;
+    case 83:
+      {
+        bS = 1;
+      }
+      break;
+  }
+  rDir = bUP + bDN;
+  lDir = bW + bS;
+  if (!playing && delay == 0) {
+    playing = true;
+    sL = sR = 0;
+  }
+}
