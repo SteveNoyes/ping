@@ -84,3 +84,101 @@ function ku(evt) {
   rDir = bUP + bDN;
   lDir = bW + bS;
 }
+
+function kadras() {
+  setTimeout("kadras()", 1000 / fps);
+  if (delay > 0) {
+    delay -= 1;
+  } else if (playing) {
+    calculate();
+  }
+  requestAnimationFrame(render);
+}
+
+function calculate() {
+  var w = window.innerWidth;
+  var h = window.innerHeight;
+  px += speedX;
+  py += speedY;
+  ry += rDir * 10;
+  ly += lDir * 10;
+
+  cLeft();
+  cRight();
+  if ((px + 20 + speedX) > w) {
+    px = w / 2;
+    py = h / 2;
+    speedY = (Math.random() * 20) - 10;
+    //logas.innerHTML = speedY;
+    speedX = (5 + (Math.random() * 5));
+    sL++;
+  } else if (px < 0) {
+    px = w / 2;
+    py = h / 2;
+    speedY = (Math.random() * 20) - 10;
+    speedX = -(5 + (Math.random() * 5));
+    sR++;
+  }
+  if ((py + 20 + speedY) > h) {
+    py = h - 20;
+    speedY = -(5 + (Math.random() * 5));
+  } else if (py < 0) {
+    py = 0;
+    speedY = (5 + (Math.random() * 5));
+  }
+  if (ry + 100 > h) {
+    ry = h - 100;
+  } else if (ry < 0) {
+    ry = 0;
+  }
+  if (ly + 100 > h) {
+    ly = h - 100;
+  } else if (ly < 0) {
+    ly = 0;
+  }
+  if (sL >= 6 || sR >= 6) {
+    playing = false;
+    delay = 120;
+    gameReset();
+  }
+}
+
+function cLeft() {
+  if (px < 20 && py >= ly - 10 && py <= ly + 90) {
+    px = 20;
+    speedX = (5 + (Math.random() * 5));
+    speedY = (Math.random() * 20) - 10;
+    l_hand.style.backgroundColor = "lime";
+  } else {
+    l_hand.style.backgroundColor = "red";
+  }
+}
+
+function cRight() {
+  var w = window.innerWidth;
+  if (px > w - 40 && py >= ry - 10 && py <= ry + 90) {
+    px = w - 40;
+    speedX = -(5 + (Math.random() * 5));
+    speedY = (Math.random() * 20) - 10;
+    r_hand.style.backgroundColor = "lime";
+  } else {
+    r_hand.style.backgroundColor = "red";
+  }
+}
+
+function render() {
+  peg.style.left = px + "px";
+  peg.style.top = py + "px";
+  r_hand.style.top = ry + "px";
+  l_hand.style.top = ly + "px";
+  logas.innerHTML = "<b>" + sL + "</b>:<b>" + sR + "</b>";
+}
+
+function gameReset() {
+  ry = ly = (window.innerHeight / 2 - 50);
+  px = window.innerWidth / 2 - 10;
+  py = window.innerHeight / 2 - 10;
+  sL = sR = 0;
+}
+gameReset();
+kadras();
