@@ -1,7 +1,6 @@
 ## Table of contents
 
 - [Overview](#overview)
-  - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -13,17 +12,9 @@
 
 Pong
 
-### Screenshot
-
-![](./screenshot.jpg)
-
-![](./screenshot.jpg)
-
-![](./screenshot.jpg)
-
 ### Links
 
-- Solution URL: [GitHub Repo](https://your-solution-url.com)
+- Solution URL: [GitHub Repo](https://github.com/SteveNoyes/ping)
 - Live Site URL: [GitHub Pages](https://pages.github.com/)
 
 ## My process
