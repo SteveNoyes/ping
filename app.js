@@ -57,3 +57,30 @@ function kd(evt) {
     sL = sR = 0;
   }
 }
+
+function ku(evt) {
+  switch (evt.keyCode) {
+    case 38:
+      {
+        bUP = 0;
+      }
+      break;
+    case 40:
+      {
+        bDN = 0;
+      }
+      break;
+    case 87:
+      {
+        bW = 0;
+      }
+      break;
+    case 83:
+      {
+        bS = 0;
+      }
+      break;
+  }
+  rDir = bUP + bDN;
+  lDir = bW + bS;
+}
